@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Samsung TV Remote</string>
+    <string name="remote_title">Control Samsung TV</string>
+    <string name="no_ir_message">Este dispositivo no tiene emisor infrarrojo. La app necesita un IR blaster físico integrado.</string>
+    <string name="power">Encendido</string>
+    <string name="up">↑</string>
+    <string name="down">↓</string>
+    <string name="left">←</string>
+    <string name="right">→</string>
+    <string name="ok">OK</string>
+    <string name="volume_up">Vol +</string>
+    <string name="volume_down">Vol -</string>
+    <string name="mute">Silencio</string>
+    <string name="channel_up">Canal +</string>
+    <string name="channel_down">Canal -</string>
+    <string name="source">Fuente</string>
+    <string name="menu">Menú</string>
+    <string name="home">Inicio</string>
+    <string name="back">Atrás</string>
+</resources>
