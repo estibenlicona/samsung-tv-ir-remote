@@ -40,13 +40,9 @@ android {
                 "proguard-rules.pro"
             )
 
-            val hasSigningEnv =
-                !System.getenv("SIGNING_STORE_FILE").isNullOrBlank() &&
-                    !System.getenv("SIGNING_STORE_PASSWORD").isNullOrBlank() &&
-                    !System.getenv("SIGNING_KEY_ALIAS").isNullOrBlank() &&
-                    !System.getenv("SIGNING_KEY_PASSWORD").isNullOrBlank()
-            if (hasSigningEnv) {
-                signingConfig = signingConfigs.getByName("release")
+            val releaseSigningConfig = signingConfigs.getByName("release")
+            if (releaseSigningConfig.storeFile != null) {
+                signingConfig = releaseSigningConfig
             }
         }
     }
