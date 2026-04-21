@@ -1,3 +1,4 @@
+dist/*.apk
 *.iml
 .gradle
 /local.properties
