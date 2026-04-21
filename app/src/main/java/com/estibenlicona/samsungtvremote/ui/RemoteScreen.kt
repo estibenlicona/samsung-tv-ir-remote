@@ -5,8 +5,8 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.MaterialTheme
@@ -31,7 +31,7 @@ fun RemoteScreen(irController: IrController) {
     val hasIr = irController.hasIrEmitter
 
     fun sendCommand(command: Int) {
-        haptic.performHapticFeedback(HapticFeedbackType.LongPress)
+        haptic.performHapticFeedback(HapticFeedbackType.KeyboardPress)
         irController.transmitSamsung(command)
     }
 
@@ -62,7 +62,7 @@ fun RemoteScreen(irController: IrController) {
                 enabled = hasIr,
                 modifier = Modifier
                     .fillMaxWidth()
-                    .size(height = 56.dp, width = 240.dp),
+                    .height(56.dp),
                 colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.error)
             ) {
                 Text(stringResource(R.string.power), fontSize = 18.sp)
