@@ -40,9 +40,13 @@ android {
                 "proguard-rules.pro"
             )
 
-            val cfg = signingConfigs.getByName("release")
-            if (cfg.storeFile != null) {
-                signingConfig = cfg
+            val hasSigningEnv =
+                !System.getenv("SIGNING_STORE_FILE").isNullOrBlank() &&
+                    !System.getenv("SIGNING_STORE_PASSWORD").isNullOrBlank() &&
+                    !System.getenv("SIGNING_KEY_ALIAS").isNullOrBlank() &&
+                    !System.getenv("SIGNING_KEY_PASSWORD").isNullOrBlank()
+            if (hasSigningEnv) {
+                signingConfig = signingConfigs.getByName("release")
             }
         }
     }
@@ -54,7 +58,4 @@ android {
     kotlinOptions {
         jvmTarget = "17"
     }
-}
-
-dependencies {
 }
