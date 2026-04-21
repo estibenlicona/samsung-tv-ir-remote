@@ -1,28 +1,16 @@
-# Descarga del APK
+# Distribución de APK
 
-Los APKs compilados **no se almacenan en el repositorio** (es mala práctica commitear binarios).
-En su lugar, se generan automáticamente por GitHub Actions en cada push a `master`.
+Los APKs se publican automáticamente desde GitHub Actions en cada push a `master`.
 
-## 📥 Descargar la última versión
+## Descarga recomendada
 
-### Opción 1: Desde Releases (recomendado)
-Ve a [Releases](https://github.com/estibenlicona/samsung-tv-ir-remote/releases) y descarga:
-- `SamsungTVRemote-debug.apk` — listo para instalar en tu celular.
-- `SamsungTVRemote-release-unsigned.apk` — requiere firmar antes de instalar (solo para distribución formal).
+- Release `latest`: https://github.com/estibenlicona/samsung-tv-ir-remote/releases/latest
 
-El tag `latest` siempre apunta al último build exitoso de `master`.
+## Archivos esperados
 
-### Opción 2: Desde Actions artifacts
-1. Ve a la pestaña [Actions](https://github.com/estibenlicona/samsung-tv-ir-remote/actions).
-2. Abre el último workflow "Build APK" exitoso.
-3. Descarga el artifact `apk-builds` (zip con ambos APKs). Requiere estar autenticado en GitHub.
+| Archivo | Cuándo aparece |
+|---|---|
+| `SamsungTVRemote-release.apk` | Cuando los secrets de firma están configurados y el APK release se firma automáticamente |
+| `SamsungTVRemote-release-unsigned.apk` | Fallback cuando no hay secrets de firma configurados |
 
-## 📱 Instalación
-
-1. Copia el `.apk` a tu celular con IR blaster.
-2. Habilita "Instalar apps de orígenes desconocidos" en Ajustes → Seguridad.
-3. Abre el archivo con un explorador de archivos y sigue el asistente.
-
-## ⚠️ Recuerda
-
-La app solo funcionará en celulares con **emisor infrarrojo físico** (ej. Galaxy S4/S5/S6, Xiaomi Mi Max, Redmi Note 4, Huawei Mate antiguos). En celulares sin IR blaster, la app abrirá pero mostrará un aviso y los botones estarán deshabilitados.
+Si necesitas configurar la firma automática en este repo (o en un fork), sigue la guía en [`docs/SIGNING.md`](../docs/SIGNING.md).
